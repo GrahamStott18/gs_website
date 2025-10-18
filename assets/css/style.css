@@ -1,0 +1,28 @@
+/* All CSS styles from the HTML file */
+/* Move all <style> content here for better organization */
+
+/* Additional responsive styles */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .project-card {
+        margin: 0 1rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Print styles */
+@media print {
+    nav, .contact-section, footer {
+        display: none;
+    }
+    
+    .project-card {
+        break-inside: avoid;
+    }
+}

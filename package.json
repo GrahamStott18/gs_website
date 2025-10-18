@@ -1,0 +1,33 @@
+{
+  "name": "data-portfolio",
+  "version": "1.0.0",
+  "description": "Data Engineering & Analytics Portfolio",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "live-server --port=8000",
+    "build": "npm run optimize-images && npm run minify-css && npm run minify-js",
+    "optimize-images": "node scripts/optimize-images.js",
+    "minify-css": "cleancss -o dist/assets/css/style.min.css assets/css/*.css",
+    "minify-js": "terser assets/js/*.js -o dist/assets/js/main.min.js",
+    "deploy": "npm run build && gh-pages -d dist",
+    "serve": "http-server dist -p 8000"
+  },
+  "keywords": [
+    "portfolio",
+    "data-engineering",
+    "analytics",
+    "etl",
+    "power-bi"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "clean-css-cli": "^5.6.2",
+    "gh-pages": "^5.0.0",
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2",
+    "sharp": "^0.32.6",
+    "terser": "^5.19.4"
+  }
+}

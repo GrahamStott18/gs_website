@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<!-- 
+ **THIS IS THE OLD CODE IN THE FILE**
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,5 +9,1338 @@
 </head>
 <body>
     Graham Stott Loves Sally Foster
+</body>
+</html>
+--> 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Engineering & Analytics Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #667eea;
+            --primary-dark: #5a67d8;
+            --secondary: #48bb78;
+            --dark: #1a202c;
+            --dark-light: #2d3748;
+            --light: #f7fafc;
+            --text: #4a5568;
+            --text-light: #718096;
+            --border: #e2e8f0;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.05" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,106.7C1248,96,1344,96,1392,96L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 5rem 0;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* Stats Section */
+        .stats {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 3rem 0;
+            margin: 2rem 0;
+            border-radius: 20px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 1rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1.5rem;
+            border: 2px solid var(--primary);
+            background: white;
+            color: var(--primary);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .search-box {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-box input {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--border);
+            border-radius: 50px;
+            width: 100%;
+            max-width: 400px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        /* Projects Grid */
+        .projects-section {
+            padding: 3rem 0;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            animation: fadeInUp 0.5s ease both;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .project-description {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            background: var(--light);
+            color: var(--text);
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.875rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            transition: var(--transition);
+        }
+
+        .project-link:hover {
+            color: var(--primary-dark);
+            transform: translateX(3px);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal.active {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.3s ease;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--light);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            background: var(--primary);
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 3rem 0;
+            border-radius: 20px;
+            margin: 3rem 0;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--light);
+            border-radius: 15px;
+            transition: var(--transition);
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-name {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 3rem 0;
+            border-radius: 20px;
+            margin: 3rem 0;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 2rem auto 0;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(26, 32, 44, 0.95);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--secondary);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            z-index: 3000;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-chart-line"></i>
+                    Data Portfolio
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><button class="theme-toggle" onclick="toggleTheme()">
+                        <i class="fas fa-moon"></i>
+                    </button></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Data Engineering & Analytics Portfolio</h1>
+            <p>Transforming raw data into actionable insights through innovative ETL pipelines and compelling visualizations</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">
+                    <i class="fas fa-folder-open"></i>
+                    View Projects
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i>
+                    Get In Touch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="25">0</span>
+                    <span class="stat-label">Projects Completed</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="15">0</span>
+                    <span class="stat-label">ETL Pipelines</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="30">0</span>
+                    <span class="stat-label">Data Visualizations</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="5">0</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterProjects('all')">All Projects</button>
+                <button class="filter-btn" onclick="filterProjects('coding')">Coding Projects</button>
+                <button class="filter-btn" onclick="filterProjects('etl')">ETL Pipelines</button>
+                <button class="filter-btn" onclick="filterProjects('visualization')">Data Visualizations</button>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="Search projects..." id="searchInput" onkeyup="searchProjects()">
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section" id="projects">
+        <div class="container">
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Coding Projects -->
+                <div class="project-card" data-category="coding" onclick="openModal('project1')">
+                    <div class="project-image">
+                        <i class="fas fa-code"></i>
+                        <span class="project-badge">Coding</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Real-time Analytics Dashboard</h3>
+                        <p class="project-description">Built a real-time analytics dashboard using React and WebSocket for live data streaming and visualization.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">WebSocket</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="coding" onclick="openModal('project2')">
+                    <div class="project-image">
+                        <i class="fas fa-robot"></i>
+                        <span class="project-badge">Coding</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">ML Prediction API</h3>
+                        <p class="project-description">Developed a RESTful API for machine learning predictions with automated model training and deployment.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">FastAPI</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">Docker</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-book"></i> Docs
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ETL Pipeline Projects -->
+                <div class="project-card" data-category="etl" onclick="openModal('project3')">
+                    <div class="project-image">
+                        <i class="fas fa-database"></i>
+                        <span class="project-badge">ETL</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Sales Data Pipeline</h3>
+                        <p class="project-description">Automated ETL pipeline processing 10M+ daily sales records from multiple sources to data warehouse.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Apache Airflow</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">AWS S3</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-chart-bar"></i> Metrics
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="etl" onclick="openModal('project4')">
+                    <div class="project-image">
+                        <i class="fas fa-exchange-alt"></i>
+                        <span class="project-badge">ETL</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">IoT Data Processing Pipeline</h3>
+                        <p class="project-description">Real-time streaming pipeline for IoT sensor data with anomaly detection and alerting system.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Apache Kafka</span>
+                            <span class="tech-tag">Spark</span>
+                            <span class="tech-tag">Elasticsearch</span>
+                            <span class="tech-tag">Grafana</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-play"></i> Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Visualization Projects -->
+                <div class="project-card" data-category="visualization" onclick="openModal('project5')">
+                    <div class="project-image">
+                        <i class="fas fa-chart-pie"></i>
+                        <span class="project-badge">Power BI</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Executive Sales Dashboard</h3>
+                        <p class="project-description">Interactive Power BI dashboard for executive sales reporting with drill-down capabilities and KPI tracking.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Power BI</span>
+                            <span class="tech-tag">DAX</span>
+                            <span class="tech-tag">Power Query</span>
+                            <span class="tech-tag">.pbip</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fas fa-download"></i> Download .pbip
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-eye"></i> Preview
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="visualization" onclick="openModal('project6')">
+                    <div class="project-image">
+                        <i class="fas fa-globe"></i>
+                        <span class="project-badge">Power BI</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Global Supply Chain Analytics</h3>
+                        <p class="project-description">Comprehensive supply chain visualization with geographic mapping and predictive analytics.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Power BI</span>
+                            <span class="tech-tag">ArcGIS</span>
+                            <span class="tech-tag">R Script</span>
+                            <span class="tech-tag">.pbip</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fas fa-download"></i> Download .pbip
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-video"></i> Tour
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="visualization" onclick="openModal('project7')">
+                    <div class="project-image">
+                        <i class="fas fa-heartbeat"></i>
+                        <span class="project-badge">Power BI</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Healthcare Analytics Platform</h3>
+                        <p class="project-description">Patient care analytics dashboard with real-time monitoring and predictive health insights.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Power BI</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">.pbip</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fas fa-download"></i> Download .pbip
+                            </a>
+                            <a href="#" class="project-link">
+                                <i class="fas fa-file-medical"></i> Case Study
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section" id="skills">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 1rem; color: var(--dark);">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fab fa-python"></i></div>
+                    <div class="skill-name">Python</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-database"></i></div>
+                    <div class="skill-name">SQL</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-bolt"></i></div>
+                    <div class="skill-name">Apache Spark</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-wind"></i></div>
+                    <div class="skill-name">Apache Airflow</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fab fa-aws"></i></div>
+                    <div class="skill-name">AWS</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-chart-bar"></i></div>
+                    <div class="skill-name">Power BI</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fab fa-docker"></i></div>
+                    <div class="skill-name">Docker</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon"><i class="fas fa-brain"></i></div>
+                    <div class="skill-name">Machine Learning</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 1rem; color: var(--dark);">Get In Touch</h2>
+            <p style="text-align: center; color: var(--text-light); margin-bottom: 2rem;">Have a project in mind? Let's discuss how we can work together!</p>
+            <form class="contact-form" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-kaggle"></i></a>
+            </div>
+            <p>&copy; 2024 Data Engineering Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body" id="modalBody">
+                <!-- Dynamic content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i> <span id="toastMessage">Success!</span>
+    </div>
+
+    <script>
+        // Project details for modal
+        const projectDetails = {
+            project1: {
+                title: 'Real-time Analytics Dashboard',
+                description: 'A comprehensive real-time analytics dashboard built with modern web technologies. This project processes and visualizes streaming data from multiple sources, providing instant insights through interactive charts and graphs.',
+                features: [
+                    'Real-time data streaming using WebSocket',
+                    'Interactive charts with D3.js',
+                    'Custom alert system for anomalies',
+                    'Responsive design for all devices',
+                    'Data export functionality'
+                ],
+                tech: ['React', 'Node.js', 'WebSocket', 'MongoDB', 'D3.js', 'Redis'],
+                github: 'https://github.com/username/realtime-dashboard',
+                demo: 'https://demo.example.com'
+            },
+            project2: {
+                title: 'ML Prediction API',
+                description: 'A scalable RESTful API for machine learning predictions featuring automated model training, versioning, and deployment. Supports multiple ML models with automatic performance monitoring.',
+                features: [
+                    'Automated model training pipeline',
+                    'Model versioning and rollback',
+                    'Performance monitoring and logging',
+                    'Batch and real-time predictions',
+                    'API rate limiting and authentication'
+                ],
+                tech: ['Python', 'FastAPI', 'TensorFlow', 'Docker', 'Kubernetes', 'PostgreSQL'],
+                github: 'https://github.com/username/ml-api',
+                docs: 'https://docs.example.com'
+            },
+            project3: {
+                title: 'Sales Data Pipeline',
+                description: 'Enterprise-grade ETL pipeline processing millions of daily sales records. Integrates data from multiple sources including POS systems, e-commerce platforms, and CRM databases.',
+                features: [
+                    'Processes 10M+ records daily',
+                    'Multi-source data integration',
+                    'Data quality validation',
+                    'Automated error handling',
+                    'Performance monitoring dashboard'
+                ],
+                tech: ['Apache Airflow', 'Python', 'PostgreSQL', 'AWS S3', 'Redshift', 'Glue'],
+                github: 'https://github.com/username/sales-etl',
+                metrics: 'https://metrics.example.com'
+            },
+            project4: {
+                title: 'IoT Data Processing Pipeline',
+                description: 'Real-time streaming pipeline for IoT sensor data with advanced anomaly detection and alerting. Handles data from thousands of devices with sub-second latency.',
+                features: [
+                    'Real-time stream processing',
+                    'Anomaly detection algorithms',
+                    'Automated alert system',
+                    'Data retention policies',
+                    'Scalable architecture'
+                ],
+                tech: ['Apache Kafka', 'Spark Streaming', 'Elasticsearch', 'Grafana', 'InfluxDB'],
+                github: 'https://github.com/username/iot-pipeline',
+                demo: 'https://demo.example.com'
+            },
+            project5: {
+                title: 'Executive Sales Dashboard',
+                description: 'Comprehensive Power BI dashboard designed for C-level executives. Features drill-down capabilities, KPI tracking, and predictive analytics for sales forecasting.',
+                features: [
+                    'Executive KPI dashboard',
+                    'Drill-down to transaction level',
+                    'Predictive sales forecasting',
+                    'Mobile-optimized reports',
+                    'Automated data refresh'
+                ],
+                tech: ['Power BI', 'DAX', 'Power Query', 'Azure Data Lake', 'SQL Server'],
+                pbip: 'downloads/executive-sales.pbip',
+                preview: 'https://app.powerbi.com/view?r=...'
+            },
+            project6: {
+                title: 'Global Supply Chain Analytics',
+                description: 'Advanced supply chain visualization with geographic mapping and predictive analytics. Tracks shipments, inventory levels, and supplier performance globally.',
+                features: [
+                    'Global shipment tracking',
+                    'Supplier performance metrics',
+                    'Inventory optimization',
+                    'Risk assessment dashboard',
+                    'Predictive delay alerts'
+                ],
+                tech: ['Power BI', 'ArcGIS', 'R Script', 'Azure Synapse', 'Power Automate'],
+                pbip: 'downloads/supply-chain.pbip',
+                tour: 'https://www.youtube.com/watch?v=...'
+            },
+            project7: {
+                title: 'Healthcare Analytics Platform',
+                description: 'Patient care analytics dashboard with real-time monitoring and predictive health insights. Helps healthcare providers improve patient outcomes through data-driven decisions.',
+                features: [
+                    'Real-time patient monitoring',
+                    'Predictive health risk models',
+                    'Treatment effectiveness analysis',
+                    'Resource optimization',
+                    'HIPAA compliant design'
+                ],
+                tech: ['Power BI', 'Python', 'SQL Server', 'Azure ML', 'FHIR'],
+                pbip: 'downloads/healthcare-analytics.pbip',
+                caseStudy: 'https://blog.example.com/healthcare-case-study'
+            }
+        };
+
+        // Filter projects
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.animation = 'fadeInUp 0.5s ease both';
+                    }, 100);
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Search projects
+        function searchProjects() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.project-card');
+            
+            cards.forEach(card => {
+                const title = card.querySelector('.project-title').textContent.toLowerCase();
+                const description = card.querySelector('.project-description').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Open modal
+        function openModal(projectId) {
+            const modal = document.getElementById('projectModal');
+            const modalBody = document.getElementById('modalBody');
+            const project = projectDetails[projectId];
+            
+            if (project) {
+                let linksHtml = '';
+                if (project.github) linksHtml += `<a href="${project.github}" class="project-link"><i class="fab fa-github"></i> View Code</a>`;
+                if (project.demo) linksHtml += `<a href="${project.demo}" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>`;
+                if (project.docs) linksHtml += `<a href="${project.docs}" class="project-link"><i class="fas fa-book"></i> Documentation</a>`;
+                if (project.metrics) linksHtml += `<a href="${project.metrics}" class="project-link"><i class="fas fa-chart-bar"></i> Metrics</a>`;
+                if (project.pbip) linksHtml += `<a href="${project.pbip}" class="project-link" download><i class="fas fa-download"></i> Download .pbip</a>`;
+                if (project.preview) linksHtml += `<a href="${project.preview}" class="project-link"><i class="fas fa-eye"></i> Preview</a>`;
+                if (project.tour) linksHtml += `<a href="${project.tour}" class="project-link"><i class="fas fa-video"></i> Video Tour</a>`;
+                if (project.caseStudy) linksHtml += `<a href="${project.caseStudy}" class="project-link"><i class="fas fa-file-alt"></i> Case Study</a>`;
+                
+                modalBody.innerHTML = `
+                    <div class="modal-image">
+                        <i class="fas fa-${projectId.includes('5') || projectId.includes('6') || projectId.includes('7') ? 'chart-pie' : 'code'}"></i>
+                    </div>
+                    <h2 style="color: var(--dark); margin-bottom: 1rem;">${project.title}</h2>
+                    <p style="color: var(--text-light); line-height: 1.8; margin-bottom: 1.5rem;">${project.description}</p>
+                    
+                    <h3 style="color: var(--dark); margin-bottom: 1rem;">Key Features</h3>
+                    <ul style="color: var(--text-light); line-height: 1.8; margin-bottom: 1.5rem; padding-left: 1.5rem;">
+                        ${project.features.map(feature => `<li>${feature}</li>`).join('')}
+                    </ul>
+                    
+                    <h3 style="color: var(--dark); margin-bottom: 1rem;">Technologies Used</h3>
+                    <div class="project-tech" style="margin-bottom: 1.5rem;">
+                        ${project.tech.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                    </div>
+                    
+                    <div class="project-links">
+                        ${linksHtml}
+                    </div>
+                `;
+                
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // Close modal
+        function closeModal() {
+            const modal = document.getElementById('projectModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on outside click
+        document.getElementById('projectModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Handle form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            // Show success toast
+            showToast('Message sent successfully! I\'ll get back to you soon.');
+            
+            // Reset form
+            event.target.reset();
+        }
+
+        // Show toast notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toastMessage');
+            
+            toastMessage.textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Animate stats on scroll
+        function animateStats() {
+            const stats = document.querySelectorAll('.stat-number');
+            
+            stats.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-target'));
+                const increment = target / 100;
+                let current = 0;
+                
+                const updateStat = () => {
+                    if (current < target) {
+                        current += increment;
+                        stat.textContent = Math.ceil(current);
+                        requestAnimationFrame(updateStat);
+                    } else {
+                        stat.textContent = target;
+                    }
+                };
+                
+                updateStat();
+            });
+        }
+
+        // Toggle theme (placeholder function)
+        function toggleTheme() {
+            showToast('Dark mode coming soon!');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initialize animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.classList.contains('stats')) {
+                        animateStats();
+                        observer.unobserve(entry.target);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe stats section
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.98)';
+                nav.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.15)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.boxShadow = 'var(--shadow)';
+            }
+        });
+    </script>
 </body>
 </html>

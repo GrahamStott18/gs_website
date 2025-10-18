@@ -1,0 +1,81 @@
+{
+  "projects": [
+    {
+      "id": "realtime-app",
+      "title": "Real-time Analytics Dashboard",
+      "category": "coding",
+      "description": "Built a real-time analytics dashboard using React and WebSocket for live data streaming and visualization.",
+      "longDescription": "A comprehensive real-time analytics dashboard that processes and visualizes streaming data from multiple sources...",
+      "features": [
+        "Real-time data streaming using WebSocket",
+        "Interactive charts with D3.js",
+        "Custom alert system for anomalies",
+        "Responsive design for all devices",
+        "Data export functionality"
+      ],
+      "technologies": ["React", "Node.js", "WebSocket", "MongoDB", "D3.js", "Redis"],
+      "links": {
+        "github": "https://github.com/username/realtime-dashboard",
+        "demo": "https://demo.example.com",
+        "docs": "https://docs.example.com"
+      },
+      "images": {
+        "thumbnail": "assets/images/projects/thumbnails/realtime-app-thumb.jpg",
+        "full": "assets/images/projects/full/realtime-app-full.jpg"
+      },
+      "date": "2024-01-15",
+      "status": "completed"
+    },
+    {
+      "id": "sales-etl",
+      "title": "Sales Data Pipeline",
+      "category": "etl",
+      "description": "Automated ETL pipeline processing 10M+ daily sales records from multiple sources to data warehouse.",
+      "longDescription": "Enterprise-grade ETL pipeline that processes millions of daily sales records from various sources...",
+      "features": [
+        "Processes 10M+ records daily",
+        "Multi-source data integration",
+        "Data quality validation",
+        "Automated error handling",
+        "Performance monitoring dashboard"
+      ],
+      "technologies": ["Apache Airflow", "Python", "PostgreSQL", "AWS S3", "Redshift", "Glue"],
+      "links": {
+        "github": "https://github.com/username/sales-etl",
+        "metrics": "https://metrics.example.com"
+      },
+      "images": {
+        "thumbnail": "assets/images/projects/thumbnails/etl-pipeline-thumb.jpg",
+        "full": "assets/images/projects/full/etl-pipeline-full.jpg"
+      },
+      "date": "2024-02-20",
+      "status": "production"
+    },
+    {
+      "id": "executive-dashboard",
+      "title": "Executive Sales Dashboard",
+      "category": "visualization",
+      "description": "Interactive Power BI dashboard for executive sales reporting with drill-down capabilities and KPI tracking.",
+      "longDescription": "Comprehensive Power BI dashboard designed for C-level executives with advanced analytics...",
+      "features": [
+        "Executive KPI dashboard",
+        "Drill-down to transaction level",
+        "Predictive sales forecasting",
+        "Mobile-optimized reports",
+        "Automated data refresh"
+      ],
+      "technologies": ["Power BI", "DAX", "Power Query", "Azure Data Lake", "SQL Server"],
+      "links": {
+        "pbip": "assets/pbip-files/executive-sales.pbip",
+        "preview": "https://app.powerbi.com/view?r=...",
+        "tutorial": "https://www.youtube.com/watch?v=..."
+      },
+      "images": {
+        "thumbnail": "assets/images/projects/thumbnails/sales-dashboard-thumb.jpg",
+        "full": "assets/images/projects/full/sales-dashboard-full.jpg"
+      },
+      "date": "2024-03-10",
+      "status": "published"
+    }
+  ]
+}
