@@ -13,6 +13,7 @@
       "name": "Big Data",
       "skills": [
         {"name": "Apache Spark", "icon": "fas fa-bolt", "level": 85},
+        {"name": "Snowflake", "icon": "fas fa-database", "level": 85}, 
         {"name": "Apache Airflow", "icon": "fas fa-wind", "level": 80},
         {"name": "Kafka", "icon": "fas fa-stream", "level": 75},
         {"name": "Hadoop", "icon": "fas fa-server", "level": 70}
